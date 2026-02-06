@@ -187,12 +187,7 @@
             line-height: 1.6;
             text-align: center;
             margin-bottom: 30px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+            /* Убрали анимацию пульсации */
         }
 
         .signature {
@@ -200,12 +195,6 @@
             font-size: 1.5em;
             color: #8a1c3d;
             font-style: italic;
-        }
-
-        .date {
-            margin-top: 10px;
-            color: #999;
-            font-size: 0.9em;
         }
 
         @media (max-width: 768px) {
@@ -280,8 +269,7 @@
                 And found myself<br>
                 Within her eyes
             </div>
-            <div class="signature">With love, your Valentine</div>
-            <div class="date">February 14, 2026</div>
+            <div class="signature">With love, your silly boy</div>
         </div>
     </div>
 
@@ -363,8 +351,8 @@
                     letterContainer.style.opacity = '1';
                     letterContainer.style.transform = 'scale(1)';
                 }, 50);
-            }, 300); // <-- ИСПРАВЛЕНО: добавлена запятая перед 300
-        });
+            }, 300);
+ });
         
         // Анимация дрожания
         const style = document.createElement('style');
