@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💌 Письмо для тебя</title>
+    <title>💌 Special Valentine's Day Letter</title>
     <style>
         * {
             margin: 0;
@@ -60,7 +60,7 @@
             background: linear-gradient(135deg, #ff416c, #ff4b2b);
             margin: 0 auto 30px;
             position: relative;
-            border-radius: 8px;
+            border-radius 8px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -76,16 +76,6 @@
             border-radius: 8px 8px 0 0;
         }
 
-        .envelope::after {
-            content: '💌';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 40px;
-            z-index: 2;
-        }
-
         h1 {
             font-size: 2.5em;
             color: #d42055;
@@ -93,18 +83,12 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .subtitle {
-            font-size: 1.3em;
-            color: #8a1c3d;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
         .question {
             font-size: 1.6em;
             color: #555;
             margin-bottom: 40px;
             font-weight: 600;
+            line-height: 1.4;
         }
 
         .buttons {
@@ -197,16 +181,18 @@
         }
 
         .letter-text {
-            font-size: 5em;
+            font-size: 1.3em;
             color: #d42055;
-            font-weight: 700;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-weight: 400;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 30px;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.02); }
         }
 
         .signature {
@@ -222,13 +208,6 @@
             font-size: 0.9em;
         }
 
-        .counter {
-            margin-top: 20px;
-            color: #8a1c3d;
-            font-size: 0.9em;
-            font-style: italic;
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 30px 20px;
@@ -236,9 +215,6 @@
             }
             h1 {
                 font-size: 1.8em;
-            }
-            .subtitle {
-                font-size: 1em;
             }
             .question {
                 font-size: 1.2em;
@@ -248,27 +224,15 @@
                 font-size: 1em;
                 width: 45%;
             }
-            .letter-text {
-                font-size: 3em;
-            }
-            .signature {
-                font-size: 1.2em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .btn {
-                width: 100%;
-            }
             .buttons {
                 flex-direction: column;
                 gap: 15px;
             }
-            h1 {
-                font-size: 1.5em;
-            }
             .letter-text {
-                font-size: 2.5em;
+                font-size: 1.1em;
+            }
+            .signature {
+                font-size: 1.2em;
             }
         }
     </style>
@@ -285,27 +249,39 @@
 
     <div class="container" id="mainContainer">
         <div class="envelope"></div>
-        <h1>💌 Особенное письмо</h1>
-        <div class="subtitle">
-            Для самой прекрасной девушки на свете.<br>
-            Внутри — самые важные слова.
-        </div>
+        <h1>💌 A Special Letter for You</h1>
         
-        <div class="question">Хочешь открыть это письмо?</div>
+        <div class="question">will you be my Valentine?</div>
         
         <div class="buttons">
             <button class="btn btn-yes" id="yesBtn">Yes</button>
             <button class="btn btn-no" id="noBtn">No</button>
         </div>
-        
-        <div class="counter" id="counter">Попыток избежать судьбы: <span id="count">0</span></div>
     </div>
 
     <div class="container" id="letterContainer" style="display: none;">
         <div class="letter">
-            <div class="letter-text">I LOVE YOU</div>
-            <div class="signature">❤️ С любовью, твой</div>
-            <div class="date">14 февраля 2026</div>
+            <div class="letter-text">
+                So if you ask me why<br>
+                She wouldn't say goodbye<br>
+                I know somewhere inside<br>
+                There is a special light<br>
+                Still shining bright<br>
+                And even on the darkest night<br>
+                She can't deny<br>
+                So if she's somewhere near me<br>
+                I hope to God she hears me<br>
+                There's no one else<br>
+                Could ever make me feel<br>
+                I'm so alive<br>
+                I hoped she'd never leave me<br>
+                Please God you must believe me<br>
+                I've searched the universe<br>
+                And found myself<br>
+                Within her eyes
+            </div>
+            <div class="signature">With love, your Valentine</div>
+            <div class="date">February 14, 2026</div>
         </div>
     </div>
 
@@ -315,7 +291,6 @@
         const noBtn = document.getElementById('noBtn');
         const mainContainer = document.getElementById('mainContainer');
         const letterContainer = document.getElementById('letterContainer');
-        const counter = document.getElementById('count');
         
         // Счётчик нажатий на No
         let noCount = 0;
@@ -327,17 +302,16 @@
         // Обработчик кнопки No
         noBtn.addEventListener('click', function() {
             noCount++;
-            counter.textContent = noCount;
             
             // Меняем текст кнопки No
             if (noCount === 1) {
                 noBtn.textContent = "Please don't click here";
                 noBtn.style.background = "linear-gradient(135deg, #6c757d, #495057)";
             } else if (noCount === 2) {
-                noBtn.textContent = "Seriously, don't click";
+                noBtn.textContent = "you're breaking my heart";
                 noSize = 0.8;
             } else if (noCount === 3) {
-                noBtn.textContent = "I'm begging you...";
+                noBtn.textContent = "I'm gonna cry";
                 noSize = 0.6;
             } else if (noCount === 4) {
                 noBtn.textContent = "Just click Yes...";
@@ -389,7 +363,7 @@
                     letterContainer.style.opacity = '1';
                     letterContainer.style.transform = 'scale(1)';
                 }, 50);
-            }, 300);
+            300);
         });
         
         // Анимация дрожания
